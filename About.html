@@ -110,7 +110,7 @@
       <div class="obj-card"><strong>Budget Input</strong>Accepts a monthly electricity budget in JMD and uses it as a hard constraint on all optimization outputs.</div>
       <div class="obj-card"><strong>Optimal Allocation</strong>Calculates optimal appliance usage based on power ratings (watts/kW), maximum allowable usage time, and electricity cost per kWh.</div>
       <div class="obj-card"><strong>Budget Enforcement</strong>Ensures total projected consumption stays within the specified budget; warns of overconsumption if unavoidable.</div>
-      <div class="obj-card"><strong>What-If Analysis</strong>Supports dynamic scenario testing &mdash; add a new appliance, increase usage time, or change the budget to see the updated plan instantly.</div>
+      <div class="obj-card"><strong>What-If Analysis</strong>Supports dynamic scenario testing: add a new appliance, increase usage time, or change the budget to see the updated plan instantly.</div>
       <div class="obj-card"><strong>Clear Outputs</strong>Produces optimal usage per appliance, cost breakdown, comparative results, and pie chart visualizations.</div>
       <div class="obj-card"><strong>Sound Mathematics</strong>Allocates usage optimally by priority using a mathematically proven LP formulation with globally optimal guarantees.</div>
     </div>
@@ -121,8 +121,8 @@
     <h2>Linear Programming as a <span>Solution</span></h2>
     <div class="about-divider"></div>
     <p>The system models electricity as a scarce resource and formulates the problem as a <strong>Linear Programming (LP) optimization</strong>. The problem maps directly onto LP because the electricity cost function is inherently linear: <em>Cost = (W/1000) &times; hours &times; rate &times; days</em>. Both the objective (maximize priority-weighted usage) and all constraints (budget cap, maximum hours, non-negativity) are linear functions of the decision variables.</p>
-    <p>LP guarantees a <em>globally optimal solution</em> for problems of this scale. The system uses <strong>scipy.optimize.linprog</strong> from Python's SciPy library, implementing both the Simplex Method and the HiGHS interior-point solver. After optimization, a <strong>surplus redistribution</strong> pass caps any over-allocated appliance at its ideal cost and proportionally redistributes the freed budget to remaining appliances by priority &mdash; iterating until no surplus remains.</p>
-    <p>The Hungarian Algorithm was considered but rejected &mdash; it handles one-to-one assignment problems and cannot be applied to continuous resource allocation with inequality constraints. Greedy heuristics could approximate a solution but do not guarantee optimality.</p>
+    <p>LP guarantees a <em>globally optimal solution</em> for problems of this scale. The system uses <strong>scipy.optimize.linprog</strong> from Python's SciPy library, implementing both the Simplex Method and the HiGHS interior-point solver. After optimization, a <strong>surplus redistribution</strong> pass caps any over-allocated appliance at its ideal cost and proportionally redistributes the freed budget to remaining appliances by priority, iterating until no surplus remains.</p>
+    <p>The Hungarian Algorithm was considered but rejected. It handles one-to-one assignment problems and cannot be applied to continuous resource allocation with inequality constraints. Greedy heuristics could approximate a solution but do not guarantee optimality.</p>
     <div class="tech-stack">
       <span class="tech-chip">Python</span>
       <span class="tech-chip">SciPy linprog</span>
@@ -148,7 +148,7 @@
       <li>Household financial planning services or electrical system diagnosis</li>
       <li>Official electricity bill generation</li>
     </ul>
-    <p>The system assumes a fixed electricity rate, user-provided usage estimates, and a consistent billing period. It is <em>advisory</em> &mdash; it produces recommendations that households choose to follow; it does not control any physical appliance. Future enhancements could incorporate live JPS rate feeds, time-of-use pricing, smart plug integration, and machine learning-based usage prediction.</p>
+    <p>The system assumes a fixed electricity rate, user-provided usage estimates, and a consistent billing period. It produces recommendations that households choose to follow; it does not control any physical appliance. Future enhancements could incorporate live JPS rate feeds, time-of-use pricing, smart plug integration, and machine learning-based usage prediction.</p>
     <div class="tag-row">
       <span class="tag">Household Optimization</span>
       <span class="tag">Linear Programming</span>
