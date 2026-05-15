@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELECTRIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">ELECTRIC.</div>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#demo">Try Our Solution</a>
+    </nav>
+    <button class="menu-toggle">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="heroCanvas" class="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="flux-wrap">
+    <svg class="flux-svg"></svg>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title">ELECTRIC</h1>
+    <p class="hero-text">COMP3901 - Capstone project</p>
+    <div class="hero-buttons">
+      <a href="#demo" class="btn secondary">Explore Our Solution</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     SECTION 1: ABOUT
+     ============================ -->
+<section class="info-section about-section reveal-section" id="about">
+  <div class="section-inner">
+    <div class="section-label">01 — About</div>
+    <div class="section-grid">
+      <div class="section-left">
+        <h2 class="section-heading">What is this project?</h2>
+        <div class="accent-bar"></div>
+      </div>
+      <div class="section-right">
+        <p class="section-body">
+          This is a <strong>budget-constrained electricity usage optimization system</strong> designed for households — particularly those navigating the high electricity costs in Jamaica. The system allows users to plan and manage their appliance usage so that total projected electricity costs never exceed their monthly budget.
+        </p>
+        <p class="section-body">
+          Rather than guessing how long to run each appliance, the system performs precise calculations using known appliance power ratings (watts/kW), electricity rates (cost per kWh), and user-defined constraints to determine the <em>optimal daily usage duration</em> for each appliance — maximizing comfort while respecting financial limits.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Household Budgeting</span>
+          <span class="tag">Electricity Optimization</span>
+          <span class="tag">Linear Programming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     SECTION 2: HOW IT WORKS
+     ============================ -->
+<section class="info-section how-section reveal-section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-label">02 — How It Works</div>
+    <div class="section-heading-row">
+      <h2 class="section-heading">How does it work?</h2>
+      <div class="accent-bar"></div>
+    </div>
+    <div class="section-grid how-grid">
+      <div class="how-video-col">
+        <div class="how-video-wrap">
+          <iframe
+            class="how-video"
+            src="https://www.youtube-nocookie.com/embed/bsLIeDRQrJo"
+            frameborder="0"
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
+        </div>
+      </div>
+      <div class="section-right">
+        <p class="section-body">
+          The system models electricity as a scarce resource and formulates the problem as a <strong>linear programming optimization</strong>. Users input their monthly budget, their appliances, and constraints like priority and maximum usage time. From there, the system takes over:
+        </p>
+        <ol class="steps-list">
+          <li class="step-item">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Convert usage to cost</strong> — appliance watt ratings and billing days are used to compute kWh consumption and the cost contribution of each appliance.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Run the LP solver</strong> — a Linear Programming model maximizes total usage time across all appliances subject to budget and per-appliance constraints.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Output the optimal plan</strong> — the system returns recommended daily hours per appliance, a full cost breakdown, and a pie chart visualization.
+            </div>
+          </li>
+          <li class="step-item">
+            <span class="step-num">4</span>
+            <div>
+              <strong>Test What-If scenarios</strong> — add a new appliance, adjust usage time, or modify your budget to instantly see the updated plan and its cost impact.
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     SECTION 3: WHY USE IT
+     ============================ -->
+<section class="info-section why-section reveal-section" id="why">
+  <div class="section-inner">
+    <div class="section-label">03 — Why Use It</div>
+    <div class="section-grid">
+      <div class="section-left">
+        <h2 class="section-heading">Why would you want this?</h2>
+        <div class="accent-bar"></div>
+      </div>
+      <div class="section-right">
+        <p class="section-body">
+          Manual electricity budgeting is unreliable. Appliances draw different wattages, run for different durations, and electricity rates are largely unknown to the average consumer. This leads to inconsistent tracking, no actionable feedback, and recurring overspend. This system solves that with automation and mathematical precision.
+        </p>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h4>Precise Cost Estimation</h4>
+            <p>Mathematically sound projections — no more guessing or shock bills at month end.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h4>Budget Enforcement</h4>
+            <p>Hard constraints guarantee your usage plan always stays within your monthly limit.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🔍</div>
+            <h4>Scenario Testing</h4>
+            <p>See the impact of a new appliance or a rate change before it affects your bill.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📊</div>
+            <h4>Clear Visualizations</h4>
+            <p>Consumption breakdowns and charts make results easy to understand and act on.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================
+     SECTION 4: INTERACTIVE DEMO
+     ============================ -->
+<section class="info-section demo-section reveal-section" id="demo">
+  <div class="section-inner">
+    <div class="section-label">04 &mdash; Live Demo</div>
+    <div class="section-grid demo-full-grid">
+      <div class="section-left">
+        <h2 class="section-heading">Try it yourself</h2>
+        <div class="accent-bar"></div>
+        <p class="section-body demo-left-sub">Enter your monthly budget, pick your appliances, and the optimizer will allocate usage across your devices &mdash; guaranteed to stay within budget.</p>
+      </div>
+      <div class="section-right">
+
+        <div class="demo-step" id="demo-step-1">
+          <div class="demo-step-label">Step 1 &mdash; Your Budget</div>
+          <div class="demo-budget-row">
+            <div class="demo-field">
+              <label>Monthly Budget (J$)</label>
+              <input type="number" id="demo-budget" placeholder="e.g. 15000" min="1000" />
+            </div>
+            <div class="demo-field">
+              <label>Rate (J$/kWh)</label>
+              <input type="number" id="demo-rate" value="45.46" step="0.01" />
+            </div>
+            <div class="demo-field">
+              <label>Billing Days</label>
+              <input type="number" id="demo-days" value="30" min="1" max="31" />
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-step" id="demo-step-2">
+          <div class="demo-step-label">Step 2 &mdash; Your Appliances</div>
+          <div class="demo-appliance-presets">
+            <div class="demo-preset-label">Quick-add presets:</div>
+            <div class="demo-preset-chips" id="demo-preset-chips"></div>
+          </div>
+          <div class="demo-appliance-list" id="demo-appliance-list"></div>
+          <button class="demo-add-custom-btn" id="demo-add-custom">+ Add Custom Appliance</button>
+        </div>
+
+        <div class="demo-step demo-step-run">
+          <button class="btn primary demo-run-btn" id="demo-run-btn">Optimize My Plan</button>
+          <div class="demo-error" id="demo-error"></div>
+        </div>
+
+        <div class="demo-results" id="demo-results" style="display:none;">
+          <div class="demo-results-header">
+            <div class="demo-results-title">Optimized Allocation</div>
+            <div class="demo-results-meta" id="demo-results-meta"></div>
+          </div>
+          <div class="demo-results-table-wrap">
+            <table class="demo-results-table" id="demo-results-table"></table>
+          </div>
+          <div class="demo-chart-wrap">
+            <canvas id="demo-pie-chart" width="260" height="260"></canvas>
+            <div class="demo-chart-legend" id="demo-chart-legend"></div>
+          </div>
+          <div class="demo-whatif-section" id="demo-whatif">
+            <div class="demo-step-label">What-If Scenario</div>
+            <p class="demo-whatif-desc">See what happens if you use one more appliance than planned.</p>
+            <div class="demo-whatif-row">
+              <select id="whatif-appliance" class="demo-select"></select>
+              <input type="number" id="whatif-extra" placeholder="Extra uses" min="1" class="demo-whatif-input" />
+              <button class="btn primary demo-whatif-btn" id="demo-whatif-btn">Run Scenario</button>
+            </div>
+            <div class="demo-whatif-result" id="demo-whatif-result"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
